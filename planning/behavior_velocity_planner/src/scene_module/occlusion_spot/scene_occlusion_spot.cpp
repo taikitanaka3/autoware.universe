@@ -75,7 +75,7 @@ bool OcclusionSpotModule::modifyPathVelocity(
     param_.v.v_ego = planner_data_->current_velocity->twist.linear.x;
     param_.v.a_ego = planner_data_->current_accel.get();
     param_.v.delay_time = planner_data_->delay_response_time;
-    const double detection_area_offset = 5.0;  // for visualization and stability
+    const double detection_area_offset = 25.0;  // for visualization and stability
     param_.detection_area_max_length =
       planning_utils::calcJudgeLineDistWithJerkLimit(
         param_.v.v_ego, param_.v.a_ego, param_.v.non_effective_accel, param_.v.non_effective_jerk,
@@ -123,13 +123,17 @@ bool OcclusionSpotModule::modifyPathVelocity(
     const auto & occ_grid_ptr = planner_data_->occupancy_grid;
     if (!occ_grid_ptr) return true;  // no data
     grid_map::GridMap grid_map;
+    Polygons2d foot_prints;
+    for (const auto & p : vehicles) {
+      foot_prints.emplace_back(planning_utils::toFootprintPolygon(p));
+    }
+    // occ -> image
     grid_utils::denoiseOccupancyGridCV(
-      occ_grid_ptr, grid_map, param_.grid, param_.is_show_cv_window, param_.filter_occupancy_grid);
+      occ_grid_ptr, foot_prints, grid_map, param_.grid, param_.is_show_cv_window,
+      param_.filter_occupancy_grid, param_.use_moving_object_ray_cast);
+    // add object foot print to image
     if (param_.use_object_info) {
       grid_utils::addObjectsToGridMap(filtered_vehicles, grid_map);
-    }
-    if (param_.use_moving_object_ray_cast) {
-      // grid_utils::addObjectsToGridMap(filtered_vehicles, grid_map);
     }
     DEBUG_PRINT(show_time, "grid [ms]: ", stop_watch_.toc("processing_time", true));
     // Note: Don't consider offset from path start to ego here
