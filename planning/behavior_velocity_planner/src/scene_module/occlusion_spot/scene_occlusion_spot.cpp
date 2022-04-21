@@ -79,7 +79,7 @@ OcclusionSpotModule::OcclusionSpotModule(
 
 bool OcclusionSpotModule::modifyPathVelocity(
   autoware_auto_planning_msgs::msg::PathWithLaneId * path,
-  [[maybe_unused]]tier4_planning_msgs::msg::StopReason * stop_reason)
+  [[maybe_unused]] tier4_planning_msgs::msg::StopReason * stop_reason)
 {
   if (param_.is_show_processing_time) stop_watch_.tic("total_processing_time");
   debug_data_.resetData();
@@ -151,9 +151,12 @@ bool OcclusionSpotModule::modifyPathVelocity(
       filtered_vehicles, stuck_vehicle_foot_prints, moving_vehicle_foot_prints,
       param_.stuck_vehicle_vel);
     // occ -> image
+    // find out occlusion from erode occlusion candidate num iter is strength of filter
+    const int num_iter = static_cast<int>(
+      (param_.detection_area.min_occlusion_spot_size / occ_grid_ptr->info.resolution) / 2);
     grid_utils::denoiseOccupancyGridCV(
       occ_grid_ptr, stuck_vehicle_foot_prints, moving_vehicle_foot_prints, grid_map, param_.grid,
-      param_.is_show_cv_window, param_.filter_occupancy_grid, param_.use_object_info,
+      param_.is_show_cv_window, num_iter, param_.use_object_info,
       param_.use_moving_object_ray_cast);
     DEBUG_PRINT(show_time, "grid [ms]: ", stop_watch_.toc("processing_time", true));
     // Note: Don't consider offset from path start to ego here
