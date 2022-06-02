@@ -28,6 +28,6 @@ ament_auto_package(
 
 install(PROGRAMS scripts/stop_reason2pose.py scripts/pose2tf.py scripts/tf2pose.py
                 scripts/case_converter.py scripts/self_pose_listener.py
-                scripts/stop_reason2tf DESTINATION lib/${PROJECT_NAME})
+                scripts/stop_reason2tf scripts/rosbag_hz_visualizer.py DESTINATION lib/${PROJECT_NAME})
 
 install(FILES DESTINATION share/${PROJECT_NAME})

@@ -130,3 +130,27 @@ Set the reference trajectory, vehicle pose and ground truth pose in the launch f
 ```sh
 ros2 launch tier4_debug_tools lateral_error_publisher.launch.xml
 ```
+
+### rosbag_hz_visualizer
+
+This module visualizes "rosbag" topic Hz.
+
+```sh
+ros2 run tier4_debug_tools hz_visualizer.py /path_to_bagfile
+```
+
+![image](./media/hz.png)
+
+## Example setting in rosbag_hz_visualizer.py
+
+```py
+self.topic_names = [
+    '/vehicle/status/velocity_status',
+    '/sensing/lidar/left/velodyne_packets',
+    '/sensing/lidar/top/velodyne_packets',
+    '/sensing/lidar/right/velodyne_packets',
+    '/perception/object_recognition/detection/objects',
+    '/perception/object_recognition/tracking/objects',
+    '/perception/object_recognition/objects',
+]
+```
