@@ -11,19 +11,20 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/common/autoware_auto_tf2/design/autoware-auto-tf2-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
-        <title>autoware_auto_tf2 {#autoware-auto-tf2-design} - Autoware Universe Documentation</title>
+        <title>autoware_auto_tf2 - Autoware Universe Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -69,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#autoware_auto_tf2" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              autoware_auto_tf2 {#autoware-auto-tf2-design}
+              autoware_auto_tf2
             
           </span>
         </div>
@@ -689,6 +690,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -714,7 +719,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
       
       
       
@@ -759,7 +764,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -789,7 +794,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_2_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_2_1" type="checkbox" id="__nav_5_2_1" checked>
       
       
       
@@ -817,7 +822,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_common/design/comparisons/" class="md-nav__link">
-        Comparisons {#helper-comparisons}
+        Comparisons
       </a>
     </li>
   
@@ -849,7 +854,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" data-md-state="indeterminate" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
       
       
       
@@ -879,7 +884,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_1" type="checkbox" id="__nav_5_3_1" checked>
       
       
       
@@ -911,7 +916,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_geometry/design/interval/" class="md-nav__link">
-        Interval {#geometry-interval}
+        Interval
       </a>
     </li>
   
@@ -925,7 +930,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_geometry/design/polygon_intersection_2d-design/" class="md-nav__link">
-        2D Convex Polygon Intersection {#convex-polygon-intersection-2d}
+        2D Convex Polygon Intersection
       </a>
     </li>
   
@@ -939,7 +944,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_geometry/design/spatial-hash-design/" class="md-nav__link">
-        Spatial Hash {#geometry-spatial-hash}
+        Spatial Hash
       </a>
     </li>
   
@@ -971,7 +976,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" data-md-state="indeterminate" type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
       
       
       
@@ -1086,9 +1091,89 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          autoware_auto_tf2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        autoware_auto_tf2 {#autoware-auto-tf2-design}
+        autoware_auto_tf2
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-implementation-of-tf2_geometry_msgs" class="md-nav__link">
+    Current Implementation of tf2_geometry_msgs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-for-autoware_auto_perception_msgsmsgboundingboxarray" class="md-nav__link">
+    Plan for autoware_auto_perception_msgs::msg::BoundingBoxArray
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    Challenges
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1120,7 +1205,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" data-md-state="indeterminate" type="checkbox" id="__nav_5_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
       
       
       
@@ -1150,7 +1235,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_6_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6_1" type="checkbox" id="__nav_5_6_1" checked>
       
       
       
@@ -1178,7 +1263,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_testing/design/autoware_testing-design/" class="md-nav__link">
-        autoware_testing {#autoware_testing-package-design}
+        autoware_testing
       </a>
     </li>
   
@@ -1210,7 +1295,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" data-md-state="indeterminate" type="checkbox" id="__nav_5_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7" checked>
       
       
       
@@ -1255,7 +1340,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_8" data-md-state="indeterminate" type="checkbox" id="__nav_5_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_8" type="checkbox" id="__nav_5_8" checked>
       
       
       
@@ -1285,7 +1370,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_8_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_8_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_8_1" type="checkbox" id="__nav_5_8_1" checked>
       
       
       
@@ -1313,7 +1398,7 @@
   
     <li class="md-nav__item">
       <a href="../../../fake_test_node/design/fake_test_node-design/" class="md-nav__link">
-        Fake Test Node {#fake-test-node-design}
+        Fake Test Node
       </a>
     </li>
   
@@ -1345,7 +1430,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" data-md-state="indeterminate" type="checkbox" id="__nav_5_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" checked>
       
       
       
@@ -1398,7 +1483,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_10" data-md-state="indeterminate" type="checkbox" id="__nav_5_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_10" type="checkbox" id="__nav_5_10" checked>
       
       
       
@@ -1451,7 +1536,52 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_11" data-md-state="indeterminate" type="checkbox" id="__nav_5_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_11" type="checkbox" id="__nav_5_11" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../grid_map_utils/">Grid map utils</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Grid map utils" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_11">
+          <span class="md-nav__icon md-icon"></span>
+          Grid map utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_12" type="checkbox" id="__nav_5_12" checked>
       
       
       
@@ -1470,7 +1600,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Interpolation" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_11">
+        <label class="md-nav__title" for="__nav_5_12">
           <span class="md-nav__icon md-icon"></span>
           Interpolation
         </label>
@@ -1496,7 +1626,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_12" data-md-state="indeterminate" type="checkbox" id="__nav_5_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_13" type="checkbox" id="__nav_5_13" checked>
       
       
       
@@ -1515,7 +1645,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Kalman filter" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_12">
+        <label class="md-nav__title" for="__nav_5_13">
           <span class="md-nav__icon md-icon"></span>
           Kalman filter
         </label>
@@ -1541,7 +1671,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_13" data-md-state="indeterminate" type="checkbox" id="__nav_5_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_14" type="checkbox" id="__nav_5_14" checked>
       
       
       
@@ -1550,13 +1680,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_13">
+        <label class="md-nav__link" for="__nav_5_14">
           Osqp interface
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Osqp interface" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_13">
+        <label class="md-nav__title" for="__nav_5_14">
           <span class="md-nav__icon md-icon"></span>
           Osqp interface
         </label>
@@ -1571,7 +1701,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_13_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_13_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_14_1" type="checkbox" id="__nav_5_14_1" checked>
       
       
       
@@ -1580,13 +1710,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_13_1">
+        <label class="md-nav__link" for="__nav_5_14_1">
           Design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_13_1">
+        <label class="md-nav__title" for="__nav_5_14_1">
           <span class="md-nav__icon md-icon"></span>
           Design
         </label>
@@ -1599,7 +1729,7 @@
   
     <li class="md-nav__item">
       <a href="../../../osqp_interface/design/osqp_interface-design/" class="md-nav__link">
-        Interface for the OSQP library {#osqp_interface-package-design}
+        Interface for the OSQP library
       </a>
     </li>
   
@@ -1631,7 +1761,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_14" data-md-state="indeterminate" type="checkbox" id="__nav_5_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_15" type="checkbox" id="__nav_5_15" checked>
       
       
       
@@ -1640,13 +1770,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_14">
+        <label class="md-nav__link" for="__nav_5_15">
           Path distance calculator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Path distance calculator" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_14">
+        <label class="md-nav__title" for="__nav_5_15">
           <span class="md-nav__icon md-icon"></span>
           Path distance calculator
         </label>
@@ -1684,7 +1814,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_15" data-md-state="indeterminate" type="checkbox" id="__nav_5_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_16" type="checkbox" id="__nav_5_16" checked>
       
       
       
@@ -1693,13 +1823,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_15">
+        <label class="md-nav__link" for="__nav_5_16">
           Polar grid
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Polar grid" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_15">
+        <label class="md-nav__title" for="__nav_5_16">
           <span class="md-nav__icon md-icon"></span>
           Polar grid
         </label>
@@ -1737,7 +1867,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_16" data-md-state="indeterminate" type="checkbox" id="__nav_5_16" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_17" type="checkbox" id="__nav_5_17" checked>
       
       
       
@@ -1756,7 +1886,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Signal processing" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_16">
+        <label class="md-nav__title" for="__nav_5_17">
           <span class="md-nav__icon md-icon"></span>
           Signal processing
         </label>
@@ -1782,7 +1912,146 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17" data-md-state="indeterminate" type="checkbox" id="__nav_5_17" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_18" type="checkbox" id="__nav_5_18" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tier4_autoware_utils/">Tier4 autoware utils</a>
+          
+            <label for="__nav_5_18">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tier4 autoware utils" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_18">
+          <span class="md-nav__icon md-icon"></span>
+          Tier4 autoware utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_18_2" type="checkbox" id="__nav_5_18_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_18_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_18_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_18_2_1" type="checkbox" id="__nav_5_18_2_1" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_18_2_1">
+          Vehicle
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vehicle" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_18_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Vehicle
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tier4_autoware_utils/docs/vehicle/vehicle/" class="md-nav__link">
+        vehicle utils
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_19" type="checkbox" id="__nav_5_19" checked>
       
       
       
@@ -1796,14 +2065,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../tier4_autoware_utils/">Tier4 autoware utils</a>
+          <a href="../../../tier4_control_rviz_plugin/">Tier4 control rviz plugin</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Tier4 autoware utils" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_17">
+      <nav class="md-nav" aria-label="Tier4 control rviz plugin" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_19">
           <span class="md-nav__icon md-icon"></span>
-          Tier4 autoware utils
+          Tier4 control rviz plugin
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1827,7 +2096,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_18" data-md-state="indeterminate" type="checkbox" id="__nav_5_18" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_20" type="checkbox" id="__nav_5_20" checked>
       
       
       
@@ -1846,7 +2115,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 datetime rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_18">
+        <label class="md-nav__title" for="__nav_5_20">
           <span class="md-nav__icon md-icon"></span>
           Tier4 datetime rviz plugin
         </label>
@@ -1872,7 +2141,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_19" data-md-state="indeterminate" type="checkbox" id="__nav_5_19" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_21" type="checkbox" id="__nav_5_21" checked>
       
       
       
@@ -1891,7 +2160,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 debug tools" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_19">
+        <label class="md-nav__title" for="__nav_5_21">
           <span class="md-nav__icon md-icon"></span>
           Tier4 debug tools
         </label>
@@ -1917,7 +2186,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_20" data-md-state="indeterminate" type="checkbox" id="__nav_5_20" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_22" type="checkbox" id="__nav_5_22" checked>
       
       
       
@@ -1936,7 +2205,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 localization rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_20">
+        <label class="md-nav__title" for="__nav_5_22">
           <span class="md-nav__icon md-icon"></span>
           Tier4 localization rviz plugin
         </label>
@@ -1962,7 +2231,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_21" data-md-state="indeterminate" type="checkbox" id="__nav_5_21" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_23" type="checkbox" id="__nav_5_23" checked>
       
       
       
@@ -1981,7 +2250,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 perception rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_21">
+        <label class="md-nav__title" for="__nav_5_23">
           <span class="md-nav__icon md-icon"></span>
           Tier4 perception rviz plugin
         </label>
@@ -2007,7 +2276,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_22" data-md-state="indeterminate" type="checkbox" id="__nav_5_22" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_24" type="checkbox" id="__nav_5_24" checked>
       
       
       
@@ -2026,7 +2295,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 planning rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_22">
+        <label class="md-nav__title" for="__nav_5_24">
           <span class="md-nav__icon md-icon"></span>
           Tier4 planning rviz plugin
         </label>
@@ -2052,7 +2321,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_23" data-md-state="indeterminate" type="checkbox" id="__nav_5_23" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_25" type="checkbox" id="__nav_5_25" checked>
       
       
       
@@ -2071,7 +2340,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 simulated clock rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_23">
+        <label class="md-nav__title" for="__nav_5_25">
           <span class="md-nav__icon md-icon"></span>
           Tier4 simulated clock rviz plugin
         </label>
@@ -2097,7 +2366,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_24" data-md-state="indeterminate" type="checkbox" id="__nav_5_24" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_26" type="checkbox" id="__nav_5_26" checked>
       
       
       
@@ -2116,7 +2385,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 state rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_24">
+        <label class="md-nav__title" for="__nav_5_26">
           <span class="md-nav__icon md-icon"></span>
           Tier4 state rviz plugin
         </label>
@@ -2142,7 +2411,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_25" data-md-state="indeterminate" type="checkbox" id="__nav_5_25" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_27" type="checkbox" id="__nav_5_27" checked>
       
       
       
@@ -2161,7 +2430,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 traffic light rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_25">
+        <label class="md-nav__title" for="__nav_5_27">
           <span class="md-nav__icon md-icon"></span>
           Tier4 traffic light rviz plugin
         </label>
@@ -2187,7 +2456,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_26" data-md-state="indeterminate" type="checkbox" id="__nav_5_26" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_28" type="checkbox" id="__nav_5_28" checked>
       
       
       
@@ -2206,7 +2475,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 vehicle rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_26">
+        <label class="md-nav__title" for="__nav_5_28">
           <span class="md-nav__icon md-icon"></span>
           Tier4 vehicle rviz plugin
         </label>
@@ -2232,7 +2501,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_27" data-md-state="indeterminate" type="checkbox" id="__nav_5_27" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_29" type="checkbox" id="__nav_5_29" checked>
       
       
       
@@ -2241,13 +2510,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_27">
+        <label class="md-nav__link" for="__nav_5_29">
           Vehicle constants manager
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Vehicle constants manager" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_27">
+        <label class="md-nav__title" for="__nav_5_29">
           <span class="md-nav__icon md-icon"></span>
           Vehicle constants manager
         </label>
@@ -2262,7 +2531,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_27_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_27_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_29_1" type="checkbox" id="__nav_5_29_1" checked>
       
       
       
@@ -2271,13 +2540,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_27_1">
+        <label class="md-nav__link" for="__nav_5_29_1">
           Design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_27_1">
+        <label class="md-nav__title" for="__nav_5_29_1">
           <span class="md-nav__icon md-icon"></span>
           Design
         </label>
@@ -2290,7 +2559,7 @@
   
     <li class="md-nav__item">
       <a href="../../../vehicle_constants_manager/design/vehicle_constants_manager-design/" class="md-nav__link">
-        vehicle_constants_manager {#vehicle-constants-manager-package-design}
+        vehicle_constants_manager
       </a>
     </li>
   
@@ -2322,7 +2591,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_28" data-md-state="indeterminate" type="checkbox" id="__nav_5_28" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_30" type="checkbox" id="__nav_5_30" checked>
       
       
       
@@ -2341,7 +2610,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Web controller" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_28">
+        <label class="md-nav__title" for="__nav_5_30">
           <span class="md-nav__icon md-icon"></span>
           Web controller
         </label>
@@ -2373,7 +2642,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -2421,7 +2690,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" data-md-state="indeterminate" type="checkbox" id="__nav_6_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" checked>
       
       
       
@@ -2466,7 +2735,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
       
       
       
@@ -2511,7 +2780,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" data-md-state="indeterminate" type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
       
       
       
@@ -2556,7 +2825,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" data-md-state="indeterminate" type="checkbox" id="__nav_6_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
       
       
       
@@ -2601,7 +2870,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" data-md-state="indeterminate" type="checkbox" id="__nav_6_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" checked>
       
       
       
@@ -2646,7 +2915,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_6" data-md-state="indeterminate" type="checkbox" id="__nav_6_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" checked>
       
       
       
@@ -2691,7 +2960,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7" data-md-state="indeterminate" type="checkbox" id="__nav_6_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" checked>
       
       
       
@@ -2721,7 +2990,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7_1" data-md-state="indeterminate" type="checkbox" id="__nav_6_7_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_7_1" type="checkbox" id="__nav_6_7_1" checked>
       
       
       
@@ -2753,7 +3022,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower {#trajectory_follower-package-design}
+        Trajectory Follower
       </a>
     </li>
   
@@ -2767,7 +3036,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
-        MPC (Trajectory Follower) {#trajectory_follower-mpc-design}
+        MPC (Trajectory Follower)
       </a>
     </li>
   
@@ -2781,7 +3050,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
-        PID (Trajectory Follower) {#trajectory_follower-pid-design}
+        PID (Trajectory Follower)
       </a>
     </li>
   
@@ -2813,7 +3082,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8" data-md-state="indeterminate" type="checkbox" id="__nav_6_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8" type="checkbox" id="__nav_6_8" checked>
       
       
       
@@ -2843,7 +3112,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8_1" data-md-state="indeterminate" type="checkbox" id="__nav_6_8_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8_1" type="checkbox" id="__nav_6_8_1" checked>
       
       
       
@@ -2877,7 +3146,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/lateral_controller-design/" class="md-nav__link">
-        Lateral Controller {#lateral-controller-design}
+        Lateral Controller
       </a>
     </li>
   
@@ -2891,7 +3160,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/latlon_muxer-design/" class="md-nav__link">
-        Lateral/Longitudinal Control Muxer {#latlon-muxer-design}
+        Lateral/Longitudinal Control Muxer
       </a>
     </li>
   
@@ -2905,7 +3174,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/longitudinal_controller-design/" class="md-nav__link">
-        Longitudinal Controller {#longitudinal-controller-design}
+        Longitudinal Controller
       </a>
     </li>
   
@@ -2919,7 +3188,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower Nodes {#trajectory_follower_nodes-package-design}
+        Trajectory Follower Nodes
       </a>
     </li>
   
@@ -2951,7 +3220,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_9" data-md-state="indeterminate" type="checkbox" id="__nav_6_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_9" type="checkbox" id="__nav_6_9" checked>
       
       
       
@@ -3002,7 +3271,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -3054,7 +3323,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" data-md-state="indeterminate" type="checkbox" id="__nav_7_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" checked>
       
       
       
@@ -3099,7 +3368,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_7_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" checked>
       
       
       
@@ -3144,7 +3413,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" data-md-state="indeterminate" type="checkbox" id="__nav_7_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" checked>
       
       
       
@@ -3189,7 +3458,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" data-md-state="indeterminate" type="checkbox" id="__nav_7_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" checked>
       
       
       
@@ -3234,7 +3503,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" data-md-state="indeterminate" type="checkbox" id="__nav_7_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" checked>
       
       
       
@@ -3279,7 +3548,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_6" data-md-state="indeterminate" type="checkbox" id="__nav_7_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_6" type="checkbox" id="__nav_7_6" checked>
       
       
       
@@ -3324,7 +3593,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" data-md-state="indeterminate" type="checkbox" id="__nav_7_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" checked>
       
       
       
@@ -3369,7 +3638,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_8" data-md-state="indeterminate" type="checkbox" id="__nav_7_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_8" type="checkbox" id="__nav_7_8" checked>
       
       
       
@@ -3414,7 +3683,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_9" data-md-state="indeterminate" type="checkbox" id="__nav_7_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_9" type="checkbox" id="__nav_7_9" checked>
       
       
       
@@ -3459,7 +3728,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_10" data-md-state="indeterminate" type="checkbox" id="__nav_7_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_10" type="checkbox" id="__nav_7_10" checked>
       
       
       
@@ -3504,7 +3773,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_11" data-md-state="indeterminate" type="checkbox" id="__nav_7_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_11" type="checkbox" id="__nav_7_11" checked>
       
       
       
@@ -3555,7 +3824,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" data-md-state="indeterminate" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
       
       
@@ -3607,7 +3876,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" data-md-state="indeterminate" type="checkbox" id="__nav_8_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" checked>
       
       
       
@@ -3652,7 +3921,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" data-md-state="indeterminate" type="checkbox" id="__nav_8_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" checked>
       
       
       
@@ -3697,7 +3966,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" data-md-state="indeterminate" type="checkbox" id="__nav_8_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" checked>
       
       
       
@@ -3742,7 +4011,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" data-md-state="indeterminate" type="checkbox" id="__nav_8_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" checked>
       
       
       
@@ -3787,7 +4056,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_5" data-md-state="indeterminate" type="checkbox" id="__nav_8_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_5" type="checkbox" id="__nav_8_5" checked>
       
       
       
@@ -3832,7 +4101,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_6" data-md-state="indeterminate" type="checkbox" id="__nav_8_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_6" type="checkbox" id="__nav_8_6" checked>
       
       
       
@@ -3877,7 +4146,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_7" data-md-state="indeterminate" type="checkbox" id="__nav_8_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_7" type="checkbox" id="__nav_8_7" checked>
       
       
       
@@ -3922,7 +4191,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_8" data-md-state="indeterminate" type="checkbox" id="__nav_8_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_8" type="checkbox" id="__nav_8_8" checked>
       
       
       
@@ -3967,7 +4236,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_9" data-md-state="indeterminate" type="checkbox" id="__nav_8_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_9" type="checkbox" id="__nav_8_9" checked>
       
       
       
@@ -4012,7 +4281,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_10" data-md-state="indeterminate" type="checkbox" id="__nav_8_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_10" type="checkbox" id="__nav_8_10" checked>
       
       
       
@@ -4057,7 +4326,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_11" data-md-state="indeterminate" type="checkbox" id="__nav_8_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_11" type="checkbox" id="__nav_8_11" checked>
       
       
       
@@ -4108,7 +4377,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" data-md-state="indeterminate" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
       
@@ -4144,7 +4413,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" data-md-state="indeterminate" type="checkbox" id="__nav_9_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" checked>
       
       
       
@@ -4186,7 +4455,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" data-md-state="indeterminate" type="checkbox" id="__nav_9_1_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" checked>
       
       
       
@@ -4278,7 +4547,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" data-md-state="indeterminate" type="checkbox" id="__nav_9_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" checked>
       
       
       
@@ -4323,7 +4592,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" data-md-state="indeterminate" type="checkbox" id="__nav_9_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" checked>
       
       
       
@@ -4382,7 +4651,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
       
       
       
@@ -4454,7 +4723,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" data-md-state="indeterminate" type="checkbox" id="__nav_10_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" checked>
       
       
       
@@ -4499,7 +4768,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" checked>
       
       
       
@@ -4544,7 +4813,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" data-md-state="indeterminate" type="checkbox" id="__nav_10_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" checked>
       
       
       
@@ -4625,7 +4894,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" data-md-state="indeterminate" type="checkbox" id="__nav_10_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" checked>
       
       
       
@@ -4670,7 +4939,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" data-md-state="indeterminate" type="checkbox" id="__nav_10_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" checked>
       
       
       
@@ -4715,7 +4984,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" data-md-state="indeterminate" type="checkbox" id="__nav_10_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_6" type="checkbox" id="__nav_10_6" checked>
       
       
       
@@ -4760,7 +5029,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7" data-md-state="indeterminate" type="checkbox" id="__nav_10_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_7" type="checkbox" id="__nav_10_7" checked>
       
       
       
@@ -4802,7 +5071,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_7_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_7_2" type="checkbox" id="__nav_10_7_2" checked>
       
       
       
@@ -4894,7 +5163,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" data-md-state="indeterminate" type="checkbox" id="__nav_10_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_8" type="checkbox" id="__nav_10_8" checked>
       
       
       
@@ -4936,7 +5205,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_8_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_8_2" type="checkbox" id="__nav_10_8_2" checked>
       
       
       
@@ -5012,7 +5281,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9" data-md-state="indeterminate" type="checkbox" id="__nav_10_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_9" type="checkbox" id="__nav_10_9" checked>
       
       
       
@@ -5054,7 +5323,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_9_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_9_2" type="checkbox" id="__nav_10_9_2" checked>
       
       
       
@@ -5106,7 +5375,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_10" data-md-state="indeterminate" type="checkbox" id="__nav_10_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_10" type="checkbox" id="__nav_10_10" checked>
       
       
       
@@ -5151,7 +5420,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_11" data-md-state="indeterminate" type="checkbox" id="__nav_10_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_11" type="checkbox" id="__nav_10_11" checked>
       
       
       
@@ -5204,7 +5473,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_12" data-md-state="indeterminate" type="checkbox" id="__nav_10_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_12" type="checkbox" id="__nav_10_12" checked>
       
       
       
@@ -5249,7 +5518,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_13" data-md-state="indeterminate" type="checkbox" id="__nav_10_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_13" type="checkbox" id="__nav_10_13" checked>
       
       
       
@@ -5294,7 +5563,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_14" data-md-state="indeterminate" type="checkbox" id="__nav_10_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_14" type="checkbox" id="__nav_10_14" checked>
       
       
       
@@ -5339,7 +5608,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_15" data-md-state="indeterminate" type="checkbox" id="__nav_10_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_15" type="checkbox" id="__nav_10_15" checked>
       
       
       
@@ -5384,7 +5653,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_16" data-md-state="indeterminate" type="checkbox" id="__nav_10_16" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_16" type="checkbox" id="__nav_10_16" checked>
       
       
       
@@ -5429,7 +5698,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_17" data-md-state="indeterminate" type="checkbox" id="__nav_10_17" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_17" type="checkbox" id="__nav_10_17" checked>
       
       
       
@@ -5474,7 +5743,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_18" data-md-state="indeterminate" type="checkbox" id="__nav_10_18" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_18" type="checkbox" id="__nav_10_18" checked>
       
       
       
@@ -5519,7 +5788,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_19" data-md-state="indeterminate" type="checkbox" id="__nav_10_19" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_19" type="checkbox" id="__nav_10_19" checked>
       
       
       
@@ -5564,7 +5833,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_20" data-md-state="indeterminate" type="checkbox" id="__nav_10_20" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_20" type="checkbox" id="__nav_10_20" checked>
       
       
       
@@ -5609,7 +5878,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_21" data-md-state="indeterminate" type="checkbox" id="__nav_10_21" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_21" type="checkbox" id="__nav_10_21" checked>
       
       
       
@@ -5660,10 +5929,12 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" data-md-state="indeterminate" type="checkbox" id="__nav_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
       
       
       
+        
+          
         
           
         
@@ -5720,7 +5991,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" data-md-state="indeterminate" type="checkbox" id="__nav_11_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" checked>
       
       
       
@@ -5801,13 +6072,15 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" data-md-state="indeterminate" type="checkbox" id="__nav_11_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" checked>
       
       
       
         
           
             
+          
+        
           
         
           
@@ -5901,7 +6174,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../planning/behavior_velocity_planner/intersection-design/" class="md-nav__link">
-        Intersection
+        Intersection design
       </a>
     </li>
   
@@ -5944,6 +6217,20 @@
     <li class="md-nav__item">
       <a href="../../../../planning/behavior_velocity_planner/occlusion-spot-design/" class="md-nav__link">
         Occlusion spot design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../planning/behavior_velocity_planner/run-out-design/" class="md-nav__link">
+        Run out design
       </a>
     </li>
   
@@ -6010,7 +6297,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" data-md-state="indeterminate" type="checkbox" id="__nav_11_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" checked>
       
       
       
@@ -6055,7 +6342,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" data-md-state="indeterminate" type="checkbox" id="__nav_11_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_4" type="checkbox" id="__nav_11_4" checked>
       
       
       
@@ -6100,7 +6387,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_5" data-md-state="indeterminate" type="checkbox" id="__nav_11_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_5" type="checkbox" id="__nav_11_5" checked>
       
       
       
@@ -6145,7 +6432,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_6" data-md-state="indeterminate" type="checkbox" id="__nav_11_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_6" type="checkbox" id="__nav_11_6" checked>
       
       
       
@@ -6190,7 +6477,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_7" data-md-state="indeterminate" type="checkbox" id="__nav_11_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_7" type="checkbox" id="__nav_11_7" checked>
       
       
       
@@ -6235,7 +6522,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_8" data-md-state="indeterminate" type="checkbox" id="__nav_11_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_8" type="checkbox" id="__nav_11_8" checked>
       
       
       
@@ -6300,7 +6587,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_9" data-md-state="indeterminate" type="checkbox" id="__nav_11_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_9" type="checkbox" id="__nav_11_9" checked>
       
       
       
@@ -6309,18 +6596,12 @@
             
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../planning/obstacle_avoidance_planner/">Obstacle avoidance planner</a>
-          
-            <label for="__nav_11_9">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
           
         </div>
       
@@ -6331,20 +6612,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../planning/obstacle_avoidance_planner/obstacle_avoidance_planner-design.ja/" class="md-nav__link">
-        Obstacle Avoidance Planner
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -6365,7 +6632,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_10" data-md-state="indeterminate" type="checkbox" id="__nav_11_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_10" type="checkbox" id="__nav_11_10" checked>
       
       
       
@@ -6410,7 +6677,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_11" data-md-state="indeterminate" type="checkbox" id="__nav_11_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_11" type="checkbox" id="__nav_11_11" checked>
       
       
       
@@ -6455,7 +6722,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_12" data-md-state="indeterminate" type="checkbox" id="__nav_11_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_12" type="checkbox" id="__nav_11_12" checked>
       
       
       
@@ -6500,7 +6767,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_13" data-md-state="indeterminate" type="checkbox" id="__nav_11_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_13" type="checkbox" id="__nav_11_13" checked>
       
       
       
@@ -6545,7 +6812,52 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_14" data-md-state="indeterminate" type="checkbox" id="__nav_11_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_14" type="checkbox" id="__nav_11_14" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../planning/rtc_interface/">Rtc interface</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Rtc interface" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_14">
+          <span class="md-nav__icon md-icon"></span>
+          Rtc interface
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_15" type="checkbox" id="__nav_11_15" checked>
       
       
       
@@ -6564,7 +6876,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Scenario selector" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_14">
+        <label class="md-nav__title" for="__nav_11_15">
           <span class="md-nav__icon md-icon"></span>
           Scenario selector
         </label>
@@ -6590,7 +6902,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_15" data-md-state="indeterminate" type="checkbox" id="__nav_11_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_16" type="checkbox" id="__nav_11_16" checked>
       
       
       
@@ -6608,14 +6920,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../planning/surround_obstacle_checker/">Surround obstacle checker</a>
           
-            <label for="__nav_11_15">
+            <label for="__nav_11_16">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Surround obstacle checker" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_15">
+        <label class="md-nav__title" for="__nav_11_16">
           <span class="md-nav__icon md-icon"></span>
           Surround obstacle checker
         </label>
@@ -6661,7 +6973,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" data-md-state="indeterminate" type="checkbox" id="__nav_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" checked>
       
       
       
@@ -6707,7 +7019,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_1" data-md-state="indeterminate" type="checkbox" id="__nav_12_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_1" type="checkbox" id="__nav_12_1" checked>
       
       
       
@@ -6752,7 +7064,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_2" data-md-state="indeterminate" type="checkbox" id="__nav_12_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_2" type="checkbox" id="__nav_12_2" checked>
       
       
       
@@ -6797,7 +7109,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_3" data-md-state="indeterminate" type="checkbox" id="__nav_12_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_3" type="checkbox" id="__nav_12_3" checked>
       
       
       
@@ -6842,7 +7154,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_4" data-md-state="indeterminate" type="checkbox" id="__nav_12_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_4" type="checkbox" id="__nav_12_4" checked>
       
       
       
@@ -6887,7 +7199,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" data-md-state="indeterminate" type="checkbox" id="__nav_12_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" checked>
       
       
       
@@ -6917,7 +7229,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_1" data-md-state="indeterminate" type="checkbox" id="__nav_12_5_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_5_1" type="checkbox" id="__nav_12_5_1" checked>
       
       
       
@@ -6969,7 +7281,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6" data-md-state="indeterminate" type="checkbox" id="__nav_12_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_6" type="checkbox" id="__nav_12_6" checked>
       
       
       
@@ -7011,7 +7323,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_12_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_6_2" type="checkbox" id="__nav_12_6_2" checked>
       
       
       
@@ -7263,7 +7575,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7" data-md-state="indeterminate" type="checkbox" id="__nav_12_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_7" type="checkbox" id="__nav_12_7" checked>
       
       
       
@@ -7344,7 +7656,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8" data-md-state="indeterminate" type="checkbox" id="__nav_12_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_8" type="checkbox" id="__nav_12_8" checked>
       
       
       
@@ -7395,7 +7707,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" data-md-state="indeterminate" type="checkbox" id="__nav_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" checked>
       
       
       
@@ -7431,7 +7743,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_1" data-md-state="indeterminate" type="checkbox" id="__nav_13_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_1" type="checkbox" id="__nav_13_1" checked>
       
       
       
@@ -7476,7 +7788,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_2" data-md-state="indeterminate" type="checkbox" id="__nav_13_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_2" type="checkbox" id="__nav_13_2" checked>
       
       
       
@@ -7521,7 +7833,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_3" data-md-state="indeterminate" type="checkbox" id="__nav_13_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_3" type="checkbox" id="__nav_13_3" checked>
       
       
       
@@ -7551,7 +7863,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_13_3_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_3_1" type="checkbox" id="__nav_13_3_1" checked>
       
       
       
@@ -7579,7 +7891,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
-        simple_planning_simulator {#simple_planning_simulator-package-design}
+        simple_planning_simulator
       </a>
     </li>
   
@@ -7617,10 +7929,12 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" data-md-state="indeterminate" type="checkbox" id="__nav_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" checked>
       
       
       
+        
+          
         
           
         
@@ -7663,7 +7977,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_1" data-md-state="indeterminate" type="checkbox" id="__nav_14_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_1" type="checkbox" id="__nav_14_1" checked>
       
       
       
@@ -7708,7 +8022,52 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_2" data-md-state="indeterminate" type="checkbox" id="__nav_14_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_2" type="checkbox" id="__nav_14_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../system/bluetooth_monitor/">Bluetooth monitor</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Bluetooth monitor" data-md-level="2">
+        <label class="md-nav__title" for="__nav_14_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bluetooth monitor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_3" type="checkbox" id="__nav_14_3" checked>
       
       
       
@@ -7727,7 +8086,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Dummy diag publisher" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_2">
+        <label class="md-nav__title" for="__nav_14_3">
           <span class="md-nav__icon md-icon"></span>
           Dummy diag publisher
         </label>
@@ -7753,7 +8112,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_3" data-md-state="indeterminate" type="checkbox" id="__nav_14_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_4" type="checkbox" id="__nav_14_4" checked>
       
       
       
@@ -7772,7 +8131,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Dummy infrastructure" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_3">
+        <label class="md-nav__title" for="__nav_14_4">
           <span class="md-nav__icon md-icon"></span>
           Dummy infrastructure
         </label>
@@ -7798,7 +8157,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_4" data-md-state="indeterminate" type="checkbox" id="__nav_14_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_5" type="checkbox" id="__nav_14_5" checked>
       
       
       
@@ -7817,7 +8176,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Emergency handler" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_4">
+        <label class="md-nav__title" for="__nav_14_5">
           <span class="md-nav__icon md-icon"></span>
           Emergency handler
         </label>
@@ -7843,7 +8202,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_5" data-md-state="indeterminate" type="checkbox" id="__nav_14_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_6" type="checkbox" id="__nav_14_6" checked>
       
       
       
@@ -7862,7 +8221,7 @@
         </div>
       
       <nav class="md-nav" aria-label="System error monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_5">
+        <label class="md-nav__title" for="__nav_14_6">
           <span class="md-nav__icon md-icon"></span>
           System error monitor
         </label>
@@ -7888,7 +8247,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_6" data-md-state="indeterminate" type="checkbox" id="__nav_14_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_7" type="checkbox" id="__nav_14_7" checked>
       
       
       
@@ -7906,14 +8265,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../system/system_monitor/">System monitor</a>
           
-            <label for="__nav_14_6">
+            <label for="__nav_14_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="System monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_6">
+        <label class="md-nav__title" for="__nav_14_7">
           <span class="md-nav__icon md-icon"></span>
           System monitor
         </label>
@@ -7930,7 +8289,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_14_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_7_2" type="checkbox" id="__nav_14_7_2" checked>
       
       
       
@@ -7963,13 +8322,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_14_6_2">
+        <label class="md-nav__link" for="__nav_14_7_2">
           Docs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Docs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_14_6_2">
+        <label class="md-nav__title" for="__nav_14_7_2">
           <span class="md-nav__icon md-icon"></span>
           Docs
         </label>
@@ -8182,7 +8541,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_7" data-md-state="indeterminate" type="checkbox" id="__nav_14_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_8" type="checkbox" id="__nav_14_8" checked>
       
       
       
@@ -8191,13 +8550,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_14_7">
+        <label class="md-nav__link" for="__nav_14_8">
           Topic state monitor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Topic state monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_7">
+        <label class="md-nav__title" for="__nav_14_8">
           <span class="md-nav__icon md-icon"></span>
           Topic state monitor
         </label>
@@ -8235,7 +8594,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_8" data-md-state="indeterminate" type="checkbox" id="__nav_14_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_9" type="checkbox" id="__nav_14_9" checked>
       
       
       
@@ -8244,13 +8603,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_14_8">
+        <label class="md-nav__link" for="__nav_14_9">
           Velodyne monitor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Velodyne monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_8">
+        <label class="md-nav__title" for="__nav_14_9">
           <span class="md-nav__icon md-icon"></span>
           Velodyne monitor
         </label>
@@ -8294,7 +8653,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" data-md-state="indeterminate" type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" checked>
       
       
       
@@ -8332,7 +8691,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_1" data-md-state="indeterminate" type="checkbox" id="__nav_15_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_1" type="checkbox" id="__nav_15_1" checked>
       
       
       
@@ -8362,7 +8721,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_1_1" data-md-state="indeterminate" type="checkbox" id="__nav_15_1_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_1_1" type="checkbox" id="__nav_15_1_1" checked>
       
       
       
@@ -8414,7 +8773,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_2" data-md-state="indeterminate" type="checkbox" id="__nav_15_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_2" type="checkbox" id="__nav_15_2" checked>
       
       
       
@@ -8459,7 +8818,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_3" data-md-state="indeterminate" type="checkbox" id="__nav_15_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_3" type="checkbox" id="__nav_15_3" checked>
       
       
       
@@ -8504,7 +8863,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" data-md-state="indeterminate" type="checkbox" id="__nav_15_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" checked>
       
       
       
@@ -8572,6 +8931,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-implementation-of-tf2_geometry_msgs" class="md-nav__link">
+    Current Implementation of tf2_geometry_msgs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-for-autoware_auto_perception_msgsmsgboundingboxarray" class="md-nav__link">
+    Plan for autoware_auto_perception_msgs::msg::BoundingBoxArray
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    Challenges
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -8588,17 +9011,166 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># autoware_auto_tf2 {#autoware-auto-tf2-design}</span>
-</code></pre></div></p>
+<h1 id="autoware_auto_tf2">autoware_auto_tf2<a class="headerlink" href="#autoware_auto_tf2" title="Permanent link">#</a></h1>
+<p>This is the design document for the <code>autoware_auto_tf2</code> package.</p>
+<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
+<p>In general, users of ROS rely on tf (and its successor, tf2) for publishing and utilizing coordinate
+frame transforms. This is true even to the extent that the tf2 contains the packages
+<code>tf2_geometry_msgs</code> and <code>tf2_sensor_msgs</code> which allow for easy conversion to and from the message
+types defined in <code>geometry_msgs</code> and <code>sensor_msgs</code>, respectively. However, AutowareAuto contains
+some specialized message types which are not transformable between frames using the ROS2 library.
+The <code>autoware_auto_tf2</code> package aims to provide developers with tools to transform applicable
+<code>autoware_auto_msgs</code> types. In addition to this, this package also provides transform tools for
+messages types in <code>geometry_msgs</code> missing in <code>tf2_geometry_msgs</code>.</p>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
+<p>While writing <code>tf2_some_msgs</code> or contributing to <code>tf2_geometry_msgs</code>, compatibility and design
+intent was ensured with the following files in the existing tf2 framework:</p>
+<ul>
+<li><code>tf2/convert.h</code></li>
+<li><code>tf2_ros/buffer_interface.h</code></li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">convert</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">B</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>The method <code>tf2::convert</code> is dependent on the following:</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">A</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="n">B</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">toMsg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">A</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">fromMsg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// New way to transform instead of using tf2::doTransform() directly</span>
+<span class="n">tf2_ros</span><span class="o">::</span><span class="n">BufferInterface</span><span class="o">::</span><span class="n">transform</span><span class="p">(...)</span><span class="w"></span>
+</code></pre></div>
+<p>Which, in turn, is dependent on the following:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">tf2::convert</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">B</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">getFrameId</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">ros</span><span class="o">::</span><span class="n">Time</span><span class="o">&amp;</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">getTimestamp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h2 id="current-implementation-of-tf2_geometry_msgs">Current Implementation of tf2_geometry_msgs<a class="headerlink" href="#current-implementation-of-tf2_geometry_msgs" title="Permanent link">#</a></h2>
+<p>In both ROS1 and ROS2 stamped msgs like <code>Vector3Stamped</code>, <code>QuaternionStamped</code> have associated
+functions like:</p>
+<ul>
+<li><code>getTimestamp</code></li>
+<li><code>getFrameId</code></li>
+<li><code>doTransform</code></li>
+<li><code>toMsg</code></li>
+<li><code>fromMsg</code></li>
+</ul>
+<p>In ROS1, to support <code>tf2::convert</code> and need in <code>doTransform</code> of the stamped data, non-stamped
+underlying data like <code>Vector3</code>, <code>Point</code>, have implementations of the following functions:</p>
+<ul>
+<li><code>toMsg</code></li>
+<li><code>fromMsg</code></li>
+</ul>
+<p>In ROS2, much of the <code>doTransform</code> method is not using <code>toMsg</code> and <code>fromMsg</code> as data types from tf2
+are not used. Instead <code>doTransform</code> is done using <code>KDL</code>, thus functions relating to underlying data
+were not added; such as <code>Vector3</code>, <code>Point</code>, or ported in this commit ros/geometry2/commit/6f2a82.
+The non-stamped data with <code>toMsg</code> and <code>fromMsg</code> are <code>Quaternion</code>, <code>Transform</code>. <code>Pose</code> has the
+modified <code>toMsg</code> and not used by <code>PoseStamped</code>.</p>
+<h2 id="plan-for-autoware_auto_perception_msgsmsgboundingboxarray">Plan for autoware_auto_perception_msgs::msg::BoundingBoxArray<a class="headerlink" href="#plan-for-autoware_auto_perception_msgsmsgboundingboxarray" title="Permanent link">#</a></h2>
+<p>The initial rough plan was to implement some of the common tf2 functions like <code>toMsg</code>, <code>fromMsg</code>,
+and <code>doTransform</code>, as needed for all the underlying data types in <code>BoundingBoxArray</code>. Examples
+of the data types include: <code>BoundingBox</code>, <code>Quaternion32</code>, and <code>Point32</code>. In addition, the
+implementation should be done such that upstream contributions could also be made to <code>geometry_msgs</code>.</p>
+<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
+<p>Due to conflicts in a function signatures, the predefined template of <code>convert.h</code>/
+<code>transform_functions.h</code> is not followed and compatibility with <code>tf2::convert(..)</code> is broken and
+<code>toMsg</code> is written differently.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Old style</span>
+<span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Vector3</span><span class="w"> </span><span class="n">toMsg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">Vector3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">)</span><span class="w"></span>
+<span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">toMsg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">Vector3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// New style</span>
+<span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">toMsg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">Vector3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<p>The library provides API <code>doTransform</code> for the following data-types that are either not available
+in <code>tf2_geometry_msgs</code> or the messages types are part of <code>autoware_auto_msgs</code> and are therefore
+custom and not inherently supported by any of the tf2 libraries. The following APIs are provided
+for the following data types:</p>
+<ul>
+<li><code>Point32</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">doTransform</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Point32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Point32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_out</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">transform</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><code>Quaternion32</code> (<code>autoware_auto_msgs</code>)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">doTransform</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">autoware_auto_geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Quaternion32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">autoware_auto_geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Quaternion32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_out</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">transform</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><code>BoundingBox</code> (<code>autoware_auto_msgs</code>)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">doTransform</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">BoundingBox</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_in</span><span class="p">,</span><span class="w"> </span><span class="n">BoundingBox</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_out</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">transform</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><code>BoundingBoxArray</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">doTransform</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">BoundingBoxArray</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">BoundingBoxArray</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_out</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">transform</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>In addition, the following helper methods are also added:</p>
+<ul>
+<li><code>BoundingBoxArray</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">TimePoint</span><span class="w"> </span><span class="n">getTimestamp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">BoundingBoxArray</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">getFrameId</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">BoundingBoxArray</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<!-- ## Inner-workings / Algorithms -->
+<!-- If applicable -->
+
+<!-- ## Error detection and handling -->
+<!-- Required -->
+
+<!-- # Security considerations -->
+<!-- Required -->
+<!-- Things to consider:
+- Spoofing (How do you check for and handle fake input?)
+- Tampering (How do you check for and handle tampered input?)
+- Repudiation (How are you affected by the actions of external actors?).
+- Information Disclosure (Can data leak?).
+- Denial of Service (How do you handle spamming?).
+- Elevation of Privilege (Do you need to change permission levels during execution?) -->
+
+<!-- # References / External links -->
+<!-- Optional -->
+
+<h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
+<h2 id="challenges">Challenges<a class="headerlink" href="#challenges" title="Permanent link">#</a></h2>
+<ul>
+<li><code>tf2_geometry_msgs</code> does not implement <code>doTransform</code> for any non-stamped data types, but it is
+  possible with the same function template. It is needed when transforming sub-data, with main data
+  that does have a stamp and can call doTransform on the sub-data with the same transform. Is this a useful upstream contribution?</li>
+<li><code>tf2_geometry_msgs</code> does not have <code>Point</code>, <code>Point32</code>, does not seem it needs one, also the
+  implementation of non-standard <code>toMsg</code> would not help the convert.</li>
+<li><code>BoundingBox</code> uses 32-bit float like <code>Quaternion32</code> and <code>Point32</code> to save space, as they are used
+  repeatedly in <code>BoundingBoxArray</code>. While transforming is it better to convert to 64-bit <code>Quaternion</code>,
+  <code>Point</code>, or <code>PoseStamped</code>, to re-use existing implementation of <code>doTransform</code>, or does it need to be
+  implemented? It may not be simple to template.</li>
+</ul>
+<!-- # Related issues -->
+<!-- Required -->
 
               
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
@@ -8607,7 +9179,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
         <a href="../../../autoware_auto_perception_rviz_plugin/" class="md-footer__link md-footer__link--prev" aria-label="Previous: autoware_auto_perception_plugin" rel="prev">
@@ -8626,13 +9199,13 @@
       
       
         
-        <a href="../../../autoware_testing/design/autoware_testing-design/" class="md-footer__link md-footer__link--next" aria-label="Next: autoware_testing {#autoware_testing-package-design}" rel="next">
+        <a href="../../../autoware_testing/design/autoware_testing-design/" class="md-footer__link md-footer__link--next" aria-label="Next: autoware_testing" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              autoware_testing {#autoware_testing-package-design}
+              autoware_testing
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -8666,10 +9239,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
