@@ -8,6 +8,7 @@ find_package(Qt5 ${rviz_QT_VERSION} EXACT REQUIRED Core Widgets)
 set(QT_LIBRARIES Qt5::Widgets)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+add_compile_options(-Wno-deprecated-declarations)
 
 include_directories(
   ${OpenCV_INCLUDE_DIRS}
