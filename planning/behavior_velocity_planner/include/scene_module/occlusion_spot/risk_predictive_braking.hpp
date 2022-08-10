@@ -30,6 +30,10 @@ void applySafeVelocityConsideringPossibleCollision(
   PathWithLaneId * inout_path, std::vector<PossibleCollisionInfo> & possible_collisions,
   const PlannerParam & param);
 
+int insertDecelPoint(
+  const geometry_msgs::msg::Pose & slow_point, const float target_velocity,
+  PathWithLaneId & output);
+
 int insertSafeVelocityToPath(
   const geometry_msgs::msg::Pose & in_pose, const double safe_vel, const PlannerParam & param,
   PathWithLaneId * inout_path);

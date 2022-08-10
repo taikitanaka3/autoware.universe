@@ -54,8 +54,36 @@ void applySafeVelocityConsideringPossibleCollision(
     const double safe_velocity = calculateInsertVelocity(v_slow_down, v_safe, v_min, original_vel);
     possible_collision.obstacle_info.safe_motion.safe_velocity = safe_velocity;
     const auto & pose = possible_collision.collision_with_margin.pose;
-    insertSafeVelocityToPath(pose, safe_velocity, param, inout_path);
+    insertDecelPoint(pose, safe_velocity, *inout_path);
   }
+}
+
+int insertDecelPoint(
+  const geometry_msgs::msg::Pose & slow_point, const float target_velocity, PathWithLaneId & output)
+{
+  const double dist_thr = 3.0;
+  const double angle_thr = M_PI_4;
+  const auto base_idx =
+    motion_utils::findNearestSegmentIndex(output.points, slow_point, dist_thr, angle_thr);
+  if (!base_idx) {
+    return -1;
+  }
+  // insert velocity to path if distance is not too close else insert new collision point
+  // if original path has narrow points it's better to set higher distance threshold
+  const double eps = 1e-2;
+  const auto insert_idx =
+    motion_utils::insertTargetPoint(base_idx.get(), slow_point.position, output.points, eps);
+
+  if (!insert_idx) {
+    return -1;
+  }
+
+  for (size_t i = insert_idx.get(); i < output.points.size(); ++i) {
+    const auto & original_velocity = output.points.at(i).point.longitudinal_velocity_mps;
+    output.points.at(i).point.longitudinal_velocity_mps =
+      std::min(original_velocity, target_velocity);
+  }
+  return 0;
 }
 
 int insertSafeVelocityToPath(
