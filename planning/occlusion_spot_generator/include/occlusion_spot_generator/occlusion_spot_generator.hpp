@@ -70,7 +70,7 @@ std::vector<PredictedObject> extractVehicles(
 std::vector<PredictedObject> filterVehiclesByDetectionArea(
   const std::vector<PredictedObject> & objs, const Polygons2d & polys);
 bool isVehicle(const ObjectClassification & obj_class);
-void categorizeVehicles(
+void vehiclesToFootprint(
   const std::vector<PredictedObject> & vehicles, Polygons2d & stuck_vehicle_foot_prints,
   Polygons2d & moving_vehicle_foot_prints, const double stuck_vehicle_vel);
 

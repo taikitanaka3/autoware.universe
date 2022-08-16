@@ -55,7 +55,6 @@ Polygon2d obj2Polygon(
   Polygon2d translate_obj_poly;
   boost::geometry::transform(rotate_obj_poly, translate_obj_poly, translate);
 
-
   return translate_obj_poly;
 }
 
@@ -66,27 +65,32 @@ Polygon2d toFootprintPolygon(const PredictedObject & object)
     obj_footprint = toBoostPoly(object.shape.footprint);
   } else {
     // cylinder type is treated as square-polygon
-    obj_footprint = obj2polyWithBuffer(
-      object.kinematics.initial_pose_with_covariance.pose, object.shape.dimensions);
+    obj_footprint =
+      obj2Polygon(object.kinematics.initial_pose_with_covariance.pose, object.shape.dimensions);
   }
 
-  // up scale
+  namespace bg = boost::geometry;
+  namespace trans = bg::strategy::transform;
+  // TODO add velocity buffer
+  // {
+  //   const double vel = object.kinematics.initial_twist_with_covariance.twist.linear.x;
+  //   const double yaw = tf2::getYaw(kinematics.initial_pose_with_covariance.pose.orientation);
+  //   const double delay_time = 0.2; // [sec]
+  //   // translate polygon(x, y)
+  //   const double t_x = vel*delay_time*std::cos(yaw);
+  //   const double t_y = vel*delay_time*std::sin(yaw);
+  //   boost::geometry::strategy::transform::translate_transformer<double, 2, 2> translate(t_x,
+  //   t_y); Polygon2d translate_obj_poly; boost::geometry::transform(obj_footprint,
+  //   translate_obj_poly, translate);
+  //   // add poly
+  //   // convex hull
+  // }
+
+  // up scale transform
   {
-    namespace bg = boost::geometry;
-    namespace trans = bg::strategy::transform;
-    // scale transform
     trans::scale_transformer<double, 2, 2> translate(1.1);
     bg::transform(obj_footprint, obj_footprint, translate);
   }
-  return obj_footprint;
-}
-
-Polygon2d polygonWithVelocity(const PredictedObject & object)
-{
-  const auto & obj_vel = obj.kinematics.initial_twist_with_covariance.twist.linear.x;
-  const double yaw = tf2::getYaw(obj.kinematics.initial_pose_with_covariance.pose.orientation);
-  Polygon2d obj_footprint;
-  obj_footprint.outer().emplace_back
   return obj_footprint;
 }
 
@@ -129,7 +133,7 @@ std::vector<PredictedObject> extractVehicles(
   return vehicles;
 }
 
-void vehiclesToFootprintWithBuffer(
+void vehiclesToFootprint(
   const std::vector<PredictedObject> & vehicles, Polygons2d & stuck_vehicle_foot_prints,
   Polygons2d & moving_vehicle_foot_prints, const double stuck_vehicle_vel)
 {

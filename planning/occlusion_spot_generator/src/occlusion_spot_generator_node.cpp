@@ -144,15 +144,18 @@ void OcclusionSpotGeneratorNode::generateOcclusionSpot()
 {
   const auto & ego_pose = perception_data_.current_pose.pose;
   const auto & obj = perception_data_.predicted_objects;
-  const auto vehicles = occlusion_spot_generator::extractVehicles(obj, ego_pose.position, 100);
-  Polygons2d stuck_vehicle_foot_prints = {};
-  Polygons2d moving_vehicle_foot_prints = {};
-  occlusion_spot_generator::vehiclesToFootprintWithBuffer(
-    vehicles, stuck_vehicle_foot_prints, moving_vehicle_foot_prints, 1.0);
-
+  const bool use_object_footprints = true;
+  const bool use_object_ray_casts = true;
   const auto & occ_grid_ptr = perception_data_.occupancy_grid;
   grid_map::GridMap grid_map;
   OccupancyGrid occupancy_grid = *occ_grid_ptr;
+  Polygons2d stuck_vehicle_foot_prints = {};
+  Polygons2d moving_vehicle_foot_prints = {};
+  {
+    const auto vehicles = occlusion_spot_generator::extractVehicles(obj, ego_pose.position, 100);
+    occlusion_spot_generator::vehiclesToFootprint(
+      vehicles, stuck_vehicle_foot_prints, moving_vehicle_foot_prints, 1.0);
+  }
   grid_utils::GridParam grid_param = {
     occlusion_param_.free_space_max, occlusion_param_.occupied_min};
   const bool is_show_debug_window = true;
@@ -172,7 +175,7 @@ void OcclusionSpotGeneratorNode::generateOcclusionSpot()
   }
 
   //! raycast object shadow using vehicle
-  if (true /*use_object_footprints || use_object_ray_casts*/) {
+  if (use_object_footprints || use_object_ray_casts) {
     // generateOccupiedImage(
     //   occupancy_grid, border_image, stuck_vehicle_foot_prints, moving_vehicle_foot_prints,
     //   use_object_footprints, use_object_ray_casts);
