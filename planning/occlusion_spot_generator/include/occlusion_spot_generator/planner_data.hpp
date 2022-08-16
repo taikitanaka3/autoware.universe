@@ -47,7 +47,7 @@ using geometry_msgs::msg::TwistStamped;
 using nav_msgs::msg::OccupancyGrid;
 
 class OcclusionSpotGeneratorNode;
-struct PlannerData
+struct PerceptionData
 {
   // tf
   PoseStamped current_pose;
@@ -61,6 +61,7 @@ struct PlannerData
 
   friend OcclusionSpotGeneratorNode;
 };
+
 }  // namespace occlusion_spot_generator
 
 #endif  // OCCLUSION_SPOT_GENERATOR__PLANNER_DATA_HPP_

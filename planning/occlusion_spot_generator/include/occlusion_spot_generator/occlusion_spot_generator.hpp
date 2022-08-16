@@ -32,21 +32,6 @@
 
 namespace occlusion_spot_generator
 {
-/// This is a convenience class for saving you from declaring all parameters
-/// manually and calculating derived parameters.
-/// This class supposes that necessary parameters are set when the node is launched.
-class OcclusionSpotGenerator
-{
-public:
-  /// Constructor
-  explicit OcclusionSpotGenerator(rclcpp::Node & node);
-  void generateOcclusionSpot();
-
-private:
-  rclcpp::Logger logger_;
-  rclcpp::Clock::SharedPtr clock_;
-};
-
 }  // namespace occlusion_spot_generator
 
 #endif  // OCCLUSION_SPOT_GENERATOR__OCCLUSION_SPOT_GENERATOR_HPP_

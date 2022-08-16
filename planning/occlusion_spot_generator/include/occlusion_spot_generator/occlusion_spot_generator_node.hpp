@@ -66,15 +66,29 @@ private:
   void onPredictedObjects(const PredictedObjects::ConstSharedPtr msg);
   void onVehicleVelocity(const Odometry::ConstSharedPtr msg);
   void onOccupancyGrid(const OccupancyGrid::ConstSharedPtr msg);
-  bool isDataReady(const PlannerData planner_data) const;
+  bool isDataReady(const PerceptionData planner_data) const;
   void onTimer();
+  void generateOcclusionSpot();
 
-  std::unique_ptr<OcclusionSpotGenerator> occlusion_spot_generator_;
-  // mutex for planner_data_
-  std::mutex mutex_;
-  PlannerData planner_data_;
+  // param callback function
+  rcl_interfaces::msg::SetParametersResult paramCallback(
+    const std::vector<rclcpp::Parameter> & parameters);
+
+  PerceptionData perception_data_;
   rclcpp::TimerBase::SharedPtr timer_;
+  struct Param
+  {
+    int free_space_max;  // maximum value of a freespace cell in the occupancy grid
+    int occupied_min;    // minimum value of an occupied cell in the occupancy grid
+    double occlusion_size_of_pedestrian={};
+    double occlusion_size_of_bicycle={};
+    double occlusion_size_of_car={};
+    double occupancy_grid_resolusion={};
+  };
+  Param occlusion_param_;
 };
+
+
 
 }  // namespace occlusion_spot_generator
 

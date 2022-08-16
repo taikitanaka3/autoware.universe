@@ -14,22 +14,6 @@
 
 #ifndef OCCLUSION_SPOT_GENERATOR__GRID_UTILS_HPP_
 #define OCCLUSION_SPOT_GENERATOR__GRID_UTILS_HPP_
-// Copyright 2021 Tier IV, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-#ifndef SCENE_MODULE__OCCLUSION_SPOT__GRID_UTILS_HPP_
-#define SCENE_MODULE__OCCLUSION_SPOT__GRID_UTILS_HPP_
 
 #include <grid_map_core/GridMap.hpp>
 #include <grid_map_core/iterators/LineIterator.hpp>
@@ -49,8 +33,24 @@
 #include <nav_msgs/msg/map_meta_data.hpp>
 #include <nav_msgs/msg/occupancy_grid.hpp>
 
+#include <boost/assign/list_of.hpp>
 #include <boost/geometry.hpp>
+#include <boost/geometry/algorithms/area.hpp>
+#include <boost/geometry/algorithms/disjoint.hpp>
+#include <boost/geometry/algorithms/distance.hpp>
+#include <boost/geometry/algorithms/equals.hpp>
+#include <boost/geometry/algorithms/intersection.hpp>
+#include <boost/geometry/geometries/linestring.hpp>
+#include <boost/geometry/geometries/point_xy.hpp>
+#include <boost/geometry/geometries/polygon.hpp>
+#include <boost/geometry/geometries/register/point.hpp>
+#include <boost/geometry/geometries/segment.hpp>
+
+#include <lanelet2_core/primitives/Polygon.h>
 #include <tf2/utils.h>
+
+#include <algorithm>
+#include <vector>
 
 #ifdef ROS_DISTRO_GALACTIC
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
@@ -58,10 +58,15 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #endif
 
-#include <vector>
+// cppcheck-suppress unknownMacro
+BOOST_GEOMETRY_REGISTER_POINT_3D(geometry_msgs::msg::Point, double, cs::cartesian, x, y, z)
 
 using geometry_msgs::msg::Pose;
 using geometry_msgs::msg::PoseStamped;
+using Point2d = boost::geometry::model::d2::point_xy<double>;
+using Polygon2d = boost::geometry::model::polygon<Point2d, false, false>;
+using Polygons2d = std::vector<Polygon2d>;
+
 namespace grid_utils
 {
 using autoware_auto_perception_msgs::msg::PredictedObject;
@@ -102,12 +107,12 @@ struct GridParam
 
 void imageToOccupancyGrid(const cv::Mat & cv_image, nav_msgs::msg::OccupancyGrid * occupancy_grid);
 void toQuantizedImage(
-  const nav_msgs::msg::OccupancyGrid & occupancy_grid, cv::Mat * cv_image, const GridParam & param);
+  const nav_msgs::msg::OccupancyGrid & occupancy_grid, cv::Mat * border_image,
+  cv::Mat * occlusion_image, const GridParam & param);
 void denoiseOccupancyGridCV(
-  const OccupancyGrid::ConstSharedPtr occupancy_grid_ptr,
-  const Polygons2d & stuck_vehicle_foot_prints, const Polygons2d & moving_vehicle_foot_prints,
-  grid_map::GridMap & grid_map, const GridParam & param, const bool is_show_debug_window,
-  const int num_iter, const bool use_object_footprints, const bool use_object_ray_casts);
+  const OccupancyGrid::ConstSharedPtr occupancy_grid_ptr, grid_map::GridMap & grid_map,
+  const GridParam & param, const bool is_show_debug_window, const int num_iter,
+  const bool use_object_footprints, const bool use_object_ray_casts);
 void addObjectsToGridMap(const std::vector<PredictedObject> & objs, grid_map::GridMap & grid);
 }  // namespace grid_utils
 

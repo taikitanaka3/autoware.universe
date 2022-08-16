@@ -1,11 +1,18 @@
 /**:
   ros__parameters:
-    wheel_radius: 0.39
-    wheel_width: 0.42
-    wheel_base: 2.74 # between front wheel center and rear wheel center
-    wheel_tread: 1.63 # between left wheel center and right wheel center
-    front_overhang: 1.0 # between front wheel center and vehicle front
-    rear_overhang: 1.03 # between rear wheel center and vehicle rear
-    left_overhang: 0.1 # between left wheel center and vehicle left
-    right_overhang: 0.1 # between right wheel center and vehicle right
-    vehicle_height: 2.5
+    use_object_info: true                 # [-] whether to reflect object info to occupancy grid map or not
+    use_moving_object_ray_cast: true      # [-] whether to reflect moving object ray_cast to occupancy grid map or not
+    debug:                                # !Note: default should be false for performance
+      is_show_occlusion: false            # [-] whether to show occlusion point markers.
+      is_show_cv_window: false            # [-] whether to show open_cv debug window
+      is_show_processing_time: false      # [-] whether to show processing time
+    threshold:
+      detection_area_length: 100.0        # [m] the length of path to consider perception range
+      stuck_vehicle_vel: 1.0              # [m/s] velocity below this value is assumed to stop
+    grid:
+      free_space_max: 43  # [-] maximum value of a free space cell in the occupancy grid
+      occupied_min: 58    # [-] minimum value of an occupied cell in the occupancy grid
+      occlusion_size_of_pedestrian: 1.5     # [m] occupancy grid must contain an UNKNOWN area of at least size NxN to be considered a hidden obstacle.
+      occlusion_size_of_bicycle: 3.0     # [m] occupancy grid must contain an UNKNOWN area of at least size NxN to be considered a hidden obstacle.
+      occlusion_size_of_car: 7.0     # [m] occupancy grid must contain an UNKNOWN area of at least size NxN to be considered a hidden obstacle.
+      occupancy_grid_resolusion: 0.5 # [m] TODO replace this with actual parameter set for occupancy grid

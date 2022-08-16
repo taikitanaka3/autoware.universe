@@ -13,6 +13,8 @@
 // limitations under the License.
 
 #include "occlusion_spot_generator/occlusion_spot_generator_node.hpp"
+#include <occlusion_spot_generator/grid_utils.hpp>
+#include "tier4_autoware_utils/ros/update_param.hpp"
 
 #include <functional>
 #include <memory>
@@ -52,6 +54,25 @@ geometry_msgs::msg::PoseStamped transform2pose(
   return pose;
 }
 
+rcl_interfaces::msg::SetParametersResult OcclusionSpotGeneratorNode::paramCallback(
+  const std::vector<rclcpp::Parameter> & parameters)
+{
+  using tier4_autoware_utils::updateParam;
+
+  {  // option parameter
+    auto &op = occlusion_param_;
+    updateParam<int>(parameters, "grid.free_space_max", op.free_space_max);
+    updateParam<int>(parameters, "grid.occupied_min", op.occupied_min);
+    updateParam<double>(parameters, "grid.occlusion_size_of_pedestrian", op.occlusion_size_of_pedestrian);
+    updateParam<double>(parameters, "grid.occlusion_size_of_bicycle", op.occlusion_size_of_bicycle);
+    updateParam<double>(parameters, "grid.occlusion_size_of_car", op.occlusion_size_of_car);
+  }
+  rcl_interfaces::msg::SetParametersResult result;
+  result.successful = true;
+  result.reason = "success";
+  return result;
+}
+
 OcclusionSpotGeneratorNode::OcclusionSpotGeneratorNode(const rclcpp::NodeOptions & node_options)
 : Node("occlusion_spot_generator_node", node_options),
   tf_buffer_(this->get_clock()),
@@ -59,60 +80,123 @@ OcclusionSpotGeneratorNode::OcclusionSpotGeneratorNode(const rclcpp::NodeOptions
 {
   using std::placeholders::_1;
   using std::chrono_literals::operator""ms;
+
+  // get parameters
+  auto &op = occlusion_param_;
+  {
+    op.occupancy_grid_resolusion = declare_parameter<double>("grid.occupancy_grid_resolusion");
+    op.free_space_max = declare_parameter<int>("grid.free_space_max");
+    op.occupied_min = declare_parameter<int>("grid.occupied_min");
+    op.occlusion_size_of_pedestrian = declare_parameter<double>("grid.occlusion_size_of_pedestrian");
+    op.occlusion_size_of_bicycle = declare_parameter<double>("grid.occlusion_size_of_bicycle");
+    op.occlusion_size_of_car = declare_parameter<double>("grid.occlusion_size_of_car");
+
+  }
   // Trigger Subscriber
   trigger_sub_path_with_lane_id_ =
     this->create_subscription<autoware_auto_planning_msgs::msg::PathWithLaneId>(
       "~/input/path_with_lane_id", 1,
-      std::bind(&OcclusionSpotGeneratorNode::onPathWithLaneId, this, _1),
-      createSubscriptionOptions(this));
-
+      std::bind(&OcclusionSpotGeneratorNode::onPathWithLaneId, this, _1));
   // Subscribers
   sub_predicted_objects_ = this->create_subscription<PredictedObjects>(
-    "~/input/dynamic_objects", 1,
-    std::bind(&OcclusionSpotGeneratorNode::onPredictedObjects, this, _1),
-    createSubscriptionOptions(this));
-  sub_vehicle_odometry_ = this->create_subscription<Odometry>(
-    "~/input/vehicle_odometry", 1,
-    std::bind(&OcclusionSpotGeneratorNode::onVehicleVelocity, this, _1),
-    createSubscriptionOptions(this));
+    "~/input/dynamic_objects", 1, [this](const PredictedObjects::ConstSharedPtr msg) {
+      perception_data_.predicted_objects = msg;
+    });
+  sub_vehicle_odometry_ = create_subscription<Odometry>(
+    "~/input/vehicle_odometry", 1, [this](const Odometry::SharedPtr msg) {
+      auto current_velocity = std::make_shared<geometry_msgs::msg::TwistStamped>();
+      current_velocity->header = msg->header;
+      current_velocity->twist = msg->twist.twist;
+      perception_data_.current_velocity = current_velocity;
+    });
   sub_occupancy_grid_ = this->create_subscription<OccupancyGrid>(
-    "~/input/occupancy_grid", 1, std::bind(&OcclusionSpotGeneratorNode::onOccupancyGrid, this, _1),
-    createSubscriptionOptions(this));
+    "~/input/occupancy_grid", 1,
+    [this](const OccupancyGrid::ConstSharedPtr msg) { perception_data_.occupancy_grid = msg; });
+
   timer_ = rclcpp::create_timer(
     this, get_clock(), 500ms, std::bind(&OcclusionSpotGeneratorNode::onTimer, this));
-  occlusion_spot_generator_ = std::make_unique<OcclusionSpotGenerator>(*this);
 }
 
 void OcclusionSpotGeneratorNode::onTimer()
 {
-  mutex_.lock();  // for planner_data_
-  // Check ready
   try {
-    planner_data_.current_pose =
+    perception_data_.current_pose =
       transform2pose(tf_buffer_.lookupTransform("map", "base_link", tf2::TimePointZero));
   } catch (tf2::TransformException & e) {
     RCLCPP_INFO(get_logger(), "waiting for transform from `map` to `base_link`");
     rclcpp::sleep_for(std::chrono::milliseconds(5000));
     return;
   }
-  if (!isDataReady(planner_data_)) {
+  if (!isDataReady(perception_data_)) {
     return;
   }
-  // NOTE: planner_data must not be referenced for multithreading
-  const auto planner_data = planner_data_;
-  occlusion_spot_generator_->generateOcclusionSpot();
+  generateOcclusionSpot();
 }
 
-bool OcclusionSpotGeneratorNode::isDataReady(const PlannerData planner_data) const
+void OcclusionSpotGeneratorNode::generateOcclusionSpot()
+{
+  const auto & ego_pose = perception_data_.current_pose.pose;
+  const auto & occ_grid_ptr = perception_data_.occupancy_grid;
+  grid_map::GridMap grid_map;
+  OccupancyGrid occupancy_grid = *occ_grid_ptr;
+  grid_utils::GridParam grid_param = {40, 60};
+  const int num_itr = 2;
+  const bool is_show_debug_window = true;
+  // grid_utils::denoiseOccupancyGridCV(occ_grid_ptr, grid_map, grid_param, true, num_itr, true, true);
+  cv::Mat border_image(
+    occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
+    cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
+  cv::Mat occlusion_image(
+    occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
+    cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
+  grid_utils::toQuantizedImage(occupancy_grid, &border_image, &occlusion_image, grid_param);
+
+  //! show original occupancy grid to compare difference
+  if (is_show_debug_window) {
+    cv::namedWindow("occlusion_image", cv::WINDOW_NORMAL);
+    cv::imshow("occlusion_image", occlusion_image);
+    cv::moveWindow("occlusion_image", 0, 0);
+  }
+
+  //! raycast object shadow using vehicle
+  if (true /*use_object_footprints || use_object_ray_casts*/) {
+    // generateOccupiedImage(
+    //   occupancy_grid, border_image, stuck_vehicle_foot_prints, moving_vehicle_foot_prints,
+    //   use_object_footprints, use_object_ray_casts);
+    if (is_show_debug_window) {
+      cv::namedWindow("object ray shadow", cv::WINDOW_NORMAL);
+      cv::imshow("object ray shadow", border_image);
+      cv::moveWindow("object ray shadow", 300, 0);
+    }
+  }
+
+  //!< @brief erode occlusion to make sure occlusion candidates are big enough
+  cv::Mat kernel(2, 2, CV_8UC1, cv::Scalar(1));
+  cv::erode(occlusion_image, occlusion_image, kernel, cv::Point(-1, -1), num_itr);
+  if (is_show_debug_window) {
+    cv::namedWindow("morph", cv::WINDOW_NORMAL);
+    cv::imshow("morph", occlusion_image);
+    cv::moveWindow("morph", 0, 300);
+  }
+
+  border_image += occlusion_image;
+  if (is_show_debug_window) {
+    cv::namedWindow("merge", cv::WINDOW_NORMAL);
+    cv::imshow("merge", border_image);
+    cv::moveWindow("merge", 300, 300);
+    cv::waitKey(1);
+  }
+  grid_utils::imageToOccupancyGrid(border_image, &occupancy_grid);
+  grid_map::GridMapRosConverter::fromOccupancyGrid(occupancy_grid, "layer", grid_map);
+}
+
+bool OcclusionSpotGeneratorNode::isDataReady(const PerceptionData planner_data) const
 {
   const auto & d = planner_data;
 
-  // from tf
   if (d.current_pose.header.frame_id == "") {
     return false;
   }
-
-  // from callbacks
   if (!d.current_velocity) {
     return false;
   }
@@ -122,37 +206,14 @@ bool OcclusionSpotGeneratorNode::isDataReady(const PlannerData planner_data) con
   if (!d.occupancy_grid) {
     return false;
   }
-  if (!d.path) {
-    return false;
-  }
   return true;
 }
+
 
 void OcclusionSpotGeneratorNode::onPathWithLaneId(
   const PathWithLaneId::ConstSharedPtr input_path_msg)
 {
-  planner_data_.path = input_path_msg;
-}
-
-void OcclusionSpotGeneratorNode::onOccupancyGrid(
-  const nav_msgs::msg::OccupancyGrid::ConstSharedPtr msg)
-{
-  planner_data_.occupancy_grid = msg;
-}
-
-void OcclusionSpotGeneratorNode::onPredictedObjects(
-  const autoware_auto_perception_msgs::msg::PredictedObjects::ConstSharedPtr msg)
-{
-  planner_data_.predicted_objects = msg;
-}
-
-void OcclusionSpotGeneratorNode::onVehicleVelocity(
-  const nav_msgs::msg::Odometry::ConstSharedPtr msg)
-{
-  auto current_velocity = std::make_shared<geometry_msgs::msg::TwistStamped>();
-  current_velocity->header = msg->header;
-  current_velocity->twist = msg->twist.twist;
-  planner_data_.current_velocity = current_velocity;
+  perception_data_.path = input_path_msg;
 }
 
 }  // namespace occlusion_spot_generator

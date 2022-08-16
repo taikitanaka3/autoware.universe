@@ -18,22 +18,5 @@
 
 namespace occlusion_spot_generator
 {
-OcclusionSpotGenerator::OcclusionSpotGenerator(rclcpp::Node & node), logger_{node.get_logger()},
-  clock_{node.get_clock()}
-{
-}
-
-void OcclusionSpotGenerator::generateOcclusionSpot()
-{
-  const geometry_msgs::msg::Pose ego_pose = planner_data_->current_pose.pose;
-  PathWithLaneId clipped_path;
-  utils::clipPathByLength(*path, clipped_path, param_.detection_area_length);
-  PathWithLaneId interp_path;
-  const auto & occ_grid_ptr = planner_data_->occupancy_grid;
-  if (!occ_grid_ptr) return;  // mo data
-  grid_map::GridMap grid_map;
-  grid_utils::denoiseOccupancyGridCV(
-    occ_grid_ptr, grid_map, param_.grid, param_.is_show_cv_window, param_.filter_occupancy_grid);
-}
 
 }  // namespace occlusion_spot_generator

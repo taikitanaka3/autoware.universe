@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <scene_module/occlusion_spot/grid_utils.hpp>
+#include <occlusion_spot_generator/grid_utils.hpp>
 
 #include <algorithm>
 #include <stdexcept>
@@ -69,10 +69,9 @@ void toQuantizedImage(
 }
 
 void denoiseOccupancyGridCV(
-  const OccupancyGrid::ConstSharedPtr occupancy_grid_ptr,
-  const Polygons2d & stuck_vehicle_foot_prints, const Polygons2d & moving_vehicle_foot_prints,
-  grid_map::GridMap & grid_map, const GridParam & param, const bool is_show_debug_window,
-  const int num_iter, const bool use_object_footprints, const bool use_object_ray_casts)
+  const OccupancyGrid::ConstSharedPtr occupancy_grid_ptr, grid_map::GridMap & grid_map,
+  const GridParam & param, const bool is_show_debug_window, const int num_iter,
+  const bool use_object_footprints, const bool use_object_ray_casts)
 {
   OccupancyGrid occupancy_grid = *occupancy_grid_ptr;
   cv::Mat border_image(
