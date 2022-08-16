@@ -17,6 +17,7 @@ ament_auto_find_build_dependencies()
 
 ament_auto_add_library(occlusion_spot_generator SHARED
   src/occlusion_spot_generator_node.cpp
+  src/occlusion_spot_generator.cpp
   src/grid_utils.cpp
 )
 

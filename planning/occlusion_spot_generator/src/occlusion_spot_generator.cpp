@@ -19,4 +19,129 @@
 namespace occlusion_spot_generator
 {
 
+inline Polygon2d toBoostPoly(const geometry_msgs::msg::Polygon & polygon)
+{
+  Polygon2d boost_poly;
+  for (const auto & point : polygon.points) {
+    const Point2d point2d(point.x, point.y);
+    boost_poly.outer().push_back(point2d);
+  }
+  return boost_poly;
+}
+
+Polygon2d obj2Polygon(
+  const geometry_msgs::msg::Pose & pose, const geometry_msgs::msg::Vector3 & shape)
+{
+  // rename
+  const double x = pose.position.x;
+  const double y = pose.position.y;
+  const double h = shape.x;
+  const double w = shape.y;
+  const double yaw = tf2::getYaw(pose.orientation);
+
+  // create base polygon
+  Polygon2d obj_poly;
+  boost::geometry::exterior_ring(obj_poly) = boost::assign::list_of<Point2d>(h / 2.0, w / 2.0)(
+    -h / 2.0, w / 2.0)(-h / 2.0, -w / 2.0)(h / 2.0, -w / 2.0)(h / 2.0, w / 2.0);
+
+  // rotate polygon(yaw)
+  boost::geometry::strategy::transform::rotate_transformer<boost::geometry::radian, double, 2, 2>
+    rotate(-yaw);  // anti-clockwise -> :clockwise rotation
+  Polygon2d rotate_obj_poly;
+  boost::geometry::transform(obj_poly, rotate_obj_poly, rotate);
+
+  // translate polygon(x, y)
+  boost::geometry::strategy::transform::translate_transformer<double, 2, 2> translate(x, y);
+  Polygon2d translate_obj_poly;
+  boost::geometry::transform(rotate_obj_poly, translate_obj_poly, translate);
+
+
+  return translate_obj_poly;
+}
+
+Polygon2d toFootprintPolygon(const PredictedObject & object)
+{
+  Polygon2d obj_footprint;
+  if (object.shape.type == Shape::POLYGON) {
+    obj_footprint = toBoostPoly(object.shape.footprint);
+  } else {
+    // cylinder type is treated as square-polygon
+    obj_footprint = obj2polyWithBuffer(
+      object.kinematics.initial_pose_with_covariance.pose, object.shape.dimensions);
+  }
+
+  // up scale
+  {
+    namespace bg = boost::geometry;
+    namespace trans = bg::strategy::transform;
+    // scale transform
+    trans::scale_transformer<double, 2, 2> translate(1.1);
+    bg::transform(obj_footprint, obj_footprint, translate);
+  }
+  return obj_footprint;
+}
+
+Polygon2d polygonWithVelocity(const PredictedObject & object)
+{
+  const auto & obj_vel = obj.kinematics.initial_twist_with_covariance.twist.linear.x;
+  const double yaw = tf2::getYaw(obj.kinematics.initial_pose_with_covariance.pose.orientation);
+  Polygon2d obj_footprint;
+  obj_footprint.outer().emplace_back
+  return obj_footprint;
+}
+
+bool isVehicle(const PredictedObject & obj)
+{
+  const auto & label = obj.classification.at(0).label;
+  return (
+    label == ObjectClassification::CAR || label == ObjectClassification::TRUCK ||
+    label == ObjectClassification::BUS || label == ObjectClassification::TRAILER);
+}
+
+bool isStuckVehicle(const PredictedObject & obj, const double min_vel)
+{
+  if (!isVehicle(obj)) return false;
+  const auto & obj_vel = obj.kinematics.initial_twist_with_covariance.twist.linear.x;
+  return std::abs(obj_vel) <= min_vel;
+}
+
+bool isMovingVehicle(const PredictedObject & obj, const double min_vel)
+{
+  if (!isVehicle(obj)) return false;
+  const auto & obj_vel = obj.kinematics.initial_twist_with_covariance.twist.linear.x;
+  return std::abs(obj_vel) > min_vel;
+}
+
+std::vector<PredictedObject> extractVehicles(
+  const PredictedObjects::ConstSharedPtr objects_ptr, const Point ego_position,
+  const double distance)
+{
+  std::vector<PredictedObject> vehicles;
+  for (const auto & obj : objects_ptr->objects) {
+    if (occlusion_spot_generator::isVehicle(obj)) {
+      const auto & o = obj.kinematics.initial_pose_with_covariance.pose.position;
+      const auto & p = ego_position;
+      // Don't consider far vehicle
+      if (std::hypot(p.x - o.x, p.y - o.y) > distance) continue;
+      vehicles.emplace_back(obj);
+    }
+  }
+  return vehicles;
+}
+
+void vehiclesToFootprintWithBuffer(
+  const std::vector<PredictedObject> & vehicles, Polygons2d & stuck_vehicle_foot_prints,
+  Polygons2d & moving_vehicle_foot_prints, const double stuck_vehicle_vel)
+{
+  moving_vehicle_foot_prints.clear();
+  stuck_vehicle_foot_prints.clear();
+  for (const auto & vehicle : vehicles) {
+    if (isMovingVehicle(vehicle, stuck_vehicle_vel)) {
+      moving_vehicle_foot_prints.emplace_back(toFootprintPolygon(vehicle));
+    } else if (isStuckVehicle(vehicle, stuck_vehicle_vel)) {
+      stuck_vehicle_foot_prints.emplace_back(toFootprintPolygon(vehicle));
+    }
+  }
+  return;
+}
 }  // namespace occlusion_spot_generator

@@ -143,14 +143,19 @@ void OcclusionSpotGeneratorNode::onTimer()
 void OcclusionSpotGeneratorNode::generateOcclusionSpot()
 {
   const auto & ego_pose = perception_data_.current_pose.pose;
+  const auto & obj = perception_data_.predicted_objects;
+  const auto vehicles = occlusion_spot_generator::extractVehicles(obj, ego_pose.position, 100);
+  Polygons2d stuck_vehicle_foot_prints = {};
+  Polygons2d moving_vehicle_foot_prints = {};
+  occlusion_spot_generator::vehiclesToFootprintWithBuffer(
+    vehicles, stuck_vehicle_foot_prints, moving_vehicle_foot_prints, 1.0);
+
   const auto & occ_grid_ptr = perception_data_.occupancy_grid;
   grid_map::GridMap grid_map;
   OccupancyGrid occupancy_grid = *occ_grid_ptr;
   grid_utils::GridParam grid_param = {
     occlusion_param_.free_space_max, occlusion_param_.occupied_min};
   const bool is_show_debug_window = true;
-  // grid_utils::denoiseOccupancyGridCV(occ_grid_ptr, grid_map, grid_param, true, num_itr, true,
-  // true);
   cv::Mat border_image(
     occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
     cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
@@ -181,12 +186,9 @@ void OcclusionSpotGeneratorNode::generateOcclusionSpot()
   //!< @brief erode occlusion to make sure occlusion candidates are big enough
   auto & op = occlusion_param_;
   const double res = op.occupancy_grid_resolusion;
-  const int num_iter_for_pedestrian =
-    static_cast<int>(op.occlusion_size_of_pedestrian / res) - 1;
-  const int num_iter_for_bicycle =
-    static_cast<int>(op.occlusion_size_of_bicycle / res) - 1;
-  const int num_iter_for_car =
-    static_cast<int>(op.occlusion_size_of_car / res) - 1;
+  const int num_iter_for_pedestrian = static_cast<int>(op.occlusion_size_of_pedestrian / res) - 1;
+  const int num_iter_for_bicycle = static_cast<int>(op.occlusion_size_of_bicycle / res) - 1;
+  const int num_iter_for_car = static_cast<int>(op.occlusion_size_of_car / res) - 1;
   cv::Mat kernel(2, 2, CV_8UC1, cv::Scalar(1));
   cv::erode(occlusion_image, occlusion_image, kernel, cv::Point(-1, -1), num_iter_for_pedestrian);
   if (is_show_debug_window) {
@@ -196,11 +198,11 @@ void OcclusionSpotGeneratorNode::generateOcclusionSpot()
   }
   {
     cv::Mat bicycle_image(
-    occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
-    cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
-      cv::Mat car_image(
-    occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
-    cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
+      occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
+      cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
+    cv::Mat car_image(
+      occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
+      cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
     int filter_size = num_iter_for_bicycle - num_iter_for_pedestrian;
     cv::erode(occlusion_image, bicycle_image, kernel, cv::Point(-1, -1), filter_size);
     if (is_show_debug_window) {

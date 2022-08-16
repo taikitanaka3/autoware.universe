@@ -34,7 +34,6 @@
 #include <nav_msgs/msg/occupancy_grid.hpp>
 
 #include <boost/assign/list_of.hpp>
-#include <boost/geometry.hpp>
 #include <boost/geometry/algorithms/area.hpp>
 #include <boost/geometry/algorithms/disjoint.hpp>
 #include <boost/geometry/algorithms/distance.hpp>
@@ -45,6 +44,7 @@
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/geometries/register/point.hpp>
 #include <boost/geometry/geometries/segment.hpp>
+#include <boost/geometry/strategies/strategies.hpp>
 
 #include <lanelet2_core/primitives/Polygon.h>
 #include <tf2/utils.h>
