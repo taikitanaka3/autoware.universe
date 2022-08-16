@@ -13,8 +13,10 @@
 // limitations under the License.
 
 #include "occlusion_spot_generator/occlusion_spot_generator_node.hpp"
-#include <occlusion_spot_generator/grid_utils.hpp>
+
 #include "tier4_autoware_utils/ros/update_param.hpp"
+
+#include <occlusion_spot_generator/grid_utils.hpp>
 
 #include <functional>
 #include <memory>
@@ -60,10 +62,11 @@ rcl_interfaces::msg::SetParametersResult OcclusionSpotGeneratorNode::paramCallba
   using tier4_autoware_utils::updateParam;
 
   {  // option parameter
-    auto &op = occlusion_param_;
+    auto & op = occlusion_param_;
     updateParam<int>(parameters, "grid.free_space_max", op.free_space_max);
     updateParam<int>(parameters, "grid.occupied_min", op.occupied_min);
-    updateParam<double>(parameters, "grid.occlusion_size_of_pedestrian", op.occlusion_size_of_pedestrian);
+    updateParam<double>(
+      parameters, "grid.occlusion_size_of_pedestrian", op.occlusion_size_of_pedestrian);
     updateParam<double>(parameters, "grid.occlusion_size_of_bicycle", op.occlusion_size_of_bicycle);
     updateParam<double>(parameters, "grid.occlusion_size_of_car", op.occlusion_size_of_car);
   }
@@ -82,15 +85,15 @@ OcclusionSpotGeneratorNode::OcclusionSpotGeneratorNode(const rclcpp::NodeOptions
   using std::chrono_literals::operator""ms;
 
   // get parameters
-  auto &op = occlusion_param_;
+  auto & op = occlusion_param_;
   {
     op.occupancy_grid_resolusion = declare_parameter<double>("grid.occupancy_grid_resolusion");
     op.free_space_max = declare_parameter<int>("grid.free_space_max");
     op.occupied_min = declare_parameter<int>("grid.occupied_min");
-    op.occlusion_size_of_pedestrian = declare_parameter<double>("grid.occlusion_size_of_pedestrian");
+    op.occlusion_size_of_pedestrian =
+      declare_parameter<double>("grid.occlusion_size_of_pedestrian");
     op.occlusion_size_of_bicycle = declare_parameter<double>("grid.occlusion_size_of_bicycle");
     op.occlusion_size_of_car = declare_parameter<double>("grid.occlusion_size_of_car");
-
   }
   // Trigger Subscriber
   trigger_sub_path_with_lane_id_ =
@@ -112,6 +115,10 @@ OcclusionSpotGeneratorNode::OcclusionSpotGeneratorNode(const rclcpp::NodeOptions
   sub_occupancy_grid_ = this->create_subscription<OccupancyGrid>(
     "~/input/occupancy_grid", 1,
     [this](const OccupancyGrid::ConstSharedPtr msg) { perception_data_.occupancy_grid = msg; });
+
+  // set parameter callback
+  param_callback_ = this->add_on_set_parameters_callback(
+    std::bind(&OcclusionSpotGeneratorNode::paramCallback, this, std::placeholders::_1));
 
   timer_ = rclcpp::create_timer(
     this, get_clock(), 500ms, std::bind(&OcclusionSpotGeneratorNode::onTimer, this));
@@ -139,10 +146,11 @@ void OcclusionSpotGeneratorNode::generateOcclusionSpot()
   const auto & occ_grid_ptr = perception_data_.occupancy_grid;
   grid_map::GridMap grid_map;
   OccupancyGrid occupancy_grid = *occ_grid_ptr;
-  grid_utils::GridParam grid_param = {40, 60};
-  const int num_itr = 2;
+  grid_utils::GridParam grid_param = {
+    occlusion_param_.free_space_max, occlusion_param_.occupied_min};
   const bool is_show_debug_window = true;
-  // grid_utils::denoiseOccupancyGridCV(occ_grid_ptr, grid_map, grid_param, true, num_itr, true, true);
+  // grid_utils::denoiseOccupancyGridCV(occ_grid_ptr, grid_map, grid_param, true, num_itr, true,
+  // true);
   cv::Mat border_image(
     occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
     cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
@@ -171,12 +179,42 @@ void OcclusionSpotGeneratorNode::generateOcclusionSpot()
   }
 
   //!< @brief erode occlusion to make sure occlusion candidates are big enough
+  auto & op = occlusion_param_;
+  const double res = op.occupancy_grid_resolusion;
+  const int num_iter_for_pedestrian =
+    static_cast<int>(op.occlusion_size_of_pedestrian / res) - 1;
+  const int num_iter_for_bicycle =
+    static_cast<int>(op.occlusion_size_of_bicycle / res) - 1;
+  const int num_iter_for_car =
+    static_cast<int>(op.occlusion_size_of_car / res) - 1;
   cv::Mat kernel(2, 2, CV_8UC1, cv::Scalar(1));
-  cv::erode(occlusion_image, occlusion_image, kernel, cv::Point(-1, -1), num_itr);
+  cv::erode(occlusion_image, occlusion_image, kernel, cv::Point(-1, -1), num_iter_for_pedestrian);
   if (is_show_debug_window) {
     cv::namedWindow("morph", cv::WINDOW_NORMAL);
     cv::imshow("morph", occlusion_image);
     cv::moveWindow("morph", 0, 300);
+  }
+  {
+    cv::Mat bicycle_image(
+    occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
+    cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
+      cv::Mat car_image(
+    occupancy_grid.info.width, occupancy_grid.info.height, CV_8UC1,
+    cv::Scalar(grid_utils::occlusion_cost_value::FREE_SPACE));
+    int filter_size = num_iter_for_bicycle - num_iter_for_pedestrian;
+    cv::erode(occlusion_image, bicycle_image, kernel, cv::Point(-1, -1), filter_size);
+    if (is_show_debug_window) {
+      cv::namedWindow("bicycle_image", cv::WINDOW_NORMAL);
+      cv::imshow("bicycle_image", bicycle_image);
+      cv::moveWindow("bicycle_image", 0, 600);
+    }
+    filter_size = num_iter_for_car - num_iter_for_bicycle;
+    cv::erode(bicycle_image, car_image, kernel, cv::Point(-1, -1), filter_size);
+    if (is_show_debug_window) {
+      cv::namedWindow("car_image", cv::WINDOW_NORMAL);
+      cv::imshow("car_image", car_image);
+      cv::moveWindow("car_image", 0, 900);
+    }
   }
 
   border_image += occlusion_image;
@@ -208,7 +246,6 @@ bool OcclusionSpotGeneratorNode::isDataReady(const PerceptionData planner_data) 
   }
   return true;
 }
-
 
 void OcclusionSpotGeneratorNode::onPathWithLaneId(
   const PathWithLaneId::ConstSharedPtr input_path_msg)

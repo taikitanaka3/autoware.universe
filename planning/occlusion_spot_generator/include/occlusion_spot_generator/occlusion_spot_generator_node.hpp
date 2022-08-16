@@ -73,22 +73,20 @@ private:
   // param callback function
   rcl_interfaces::msg::SetParametersResult paramCallback(
     const std::vector<rclcpp::Parameter> & parameters);
-
+  rclcpp::Node::OnSetParametersCallbackHandle::SharedPtr param_callback_;
   PerceptionData perception_data_;
   rclcpp::TimerBase::SharedPtr timer_;
   struct Param
   {
     int free_space_max;  // maximum value of a freespace cell in the occupancy grid
     int occupied_min;    // minimum value of an occupied cell in the occupancy grid
-    double occlusion_size_of_pedestrian={};
-    double occlusion_size_of_bicycle={};
-    double occlusion_size_of_car={};
-    double occupancy_grid_resolusion={};
+    double occlusion_size_of_pedestrian = {};
+    double occlusion_size_of_bicycle = {};
+    double occlusion_size_of_car = {};
+    double occupancy_grid_resolusion = {};
   };
   Param occlusion_param_;
 };
-
-
 
 }  // namespace occlusion_spot_generator
 
