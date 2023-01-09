@@ -137,7 +137,6 @@ void calcSlowDownPointsForPossibleCollision(
         auto & col = possible_collisions.at(collision_index);
         col.collision_with_margin.longitudinal_velocity_mps = v;
         col.collision_with_margin.pose.position.z = z;
-        col.collision_pose.position.z = z;
         col.intersection_pose.position.z = z;
         col.obstacle_info.position.z = z;
         const double current_dist2col = col.arc_lane_dist_at_collision.length + offset;
@@ -317,7 +316,6 @@ PossibleCollisionInfo calculateCollisionPathPointFromOcclusionSpot(
   const auto & ll = path_lanelet.centerline2d();
   pc.obstacle_info.position = calcPosition(ll, arc_coord_occlusion);
   pc.obstacle_info.max_velocity = param.pedestrian_vel;
-  pc.collision_pose.position = calcPosition(ll, {arc_coord_occlusion_with_offset.length, 0.0});
   pc.collision_with_margin.pose.position = calcPosition(ll, {distance_to_stop, 0.0});
   pc.intersection_pose.position = calcPosition(ll, {arc_coord_occlusion.length, 0.0});
   return pc;

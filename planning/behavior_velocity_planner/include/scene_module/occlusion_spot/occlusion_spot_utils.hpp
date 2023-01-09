@@ -165,7 +165,6 @@ struct PossibleCollisionInfo
 {
   ObstacleInfo obstacle_info;                          // For hidden obstacle
   PathPoint collision_with_margin;                     // For baselink at collision point
-  Pose collision_pose;                                 // only use this for debugging
   Pose intersection_pose;                              // For egp path and hidden obstacle
   lanelet::ArcCoordinates arc_lane_dist_at_collision;  // For ego distance to obstacle in s-d
   PossibleCollisionInfo() = default;

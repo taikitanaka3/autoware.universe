@@ -60,15 +60,6 @@ std::vector<Marker> makeDebugInfoMarker(
     debug_marker.color = createMarkerColor(1.0, 0.0, 0.0, 0.5);
     debug_markers.push_back(debug_marker);
   }
-  // cylinder at collision_point point
-  {
-    debug_marker.ns = "collision_point_with_margin";
-    debug_marker.type = Marker::CYLINDER;
-    debug_marker.pose = pc.collision_pose;
-    debug_marker.scale = createMarkerScale(0.5, 0.5, 0.5);
-    debug_marker.color = createMarkerColor(1.0, 0.5, 0.0, 0.5);
-    debug_markers.push_back(debug_marker);
-  }
 
   // cylinder at obstacle point
   {
